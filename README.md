@@ -15,6 +15,6 @@
 - [ ] faq page
 - [ ] single facility page
 - [ ] add bread crumbs
-- [ ] system worker setting
+- [x] system worker setting
 - [ ] install btn
 - [ ] change theme btn
