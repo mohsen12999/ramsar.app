@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/ramsar.app/static/css/main.7141ca40.chunk.css",
+    "main.js": "/ramsar.app/static/js/main.67b9d9fd.chunk.js",
+    "main.js.map": "/ramsar.app/static/js/main.67b9d9fd.chunk.js.map",
+    "runtime-main.js": "/ramsar.app/static/js/runtime-main.5a3f87b5.js",
+    "runtime-main.js.map": "/ramsar.app/static/js/runtime-main.5a3f87b5.js.map",
+    "static/js/2.89aa9cbc.chunk.js": "/ramsar.app/static/js/2.89aa9cbc.chunk.js",
+    "static/js/2.89aa9cbc.chunk.js.map": "/ramsar.app/static/js/2.89aa9cbc.chunk.js.map",
+    "static/js/3.63fdfdb0.chunk.js": "/ramsar.app/static/js/3.63fdfdb0.chunk.js",
+    "static/js/3.63fdfdb0.chunk.js.map": "/ramsar.app/static/js/3.63fdfdb0.chunk.js.map",
+    "index.html": "/ramsar.app/index.html",
+    "service-worker.js": "/ramsar.app/service-worker.js",
+    "service-worker.js.map": "/ramsar.app/service-worker.js.map",
+    "static/css/main.7141ca40.chunk.css.map": "/ramsar.app/static/css/main.7141ca40.chunk.css.map",
+    "static/js/2.89aa9cbc.chunk.js.LICENSE.txt": "/ramsar.app/static/js/2.89aa9cbc.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5a3f87b5.js",
+    "static/js/2.89aa9cbc.chunk.js",
+    "static/css/main.7141ca40.chunk.css",
+    "static/js/main.67b9d9fd.chunk.js"
+  ]
+}
