@@ -7,14 +7,16 @@
 - [x] theme ui -> daisy
   - [x] add `tailwindcss` from https://tailwindcss.com/docs/guides/create-react-app
   - [x] add daisy ui from https://daisy.js.org/
+- [x] system worker setting
+- [x] add redux and config store
 - [ ] icon pack
-- [ ] add redux and config store
 - [ ] main page
 - [ ] category page
 - [ ] about page
 - [ ] faq page
+- [ ] search page
 - [ ] single facility page
 - [ ] add bread crumbs
-- [x] system worker setting
 - [ ] install btn
 - [ ] change theme btn
+- [ ] add github page

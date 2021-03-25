@@ -1,27 +1,25 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Route, Switch } from "react-router";
+import { Pages } from "./shares/URLs";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <button className="btn btn-primary">DaisyUI Button</button>
-      </header>
-    </div>
-  );
-}
+import Home from "./pages/Home";
+import Category from "./pages/Category";
+import Facility from "./pages/Facility";
+import Search from "./pages/Search";
+import About from "./pages/About";
+import Faq from "./pages/Faq";
+import Notfound from "./pages/Notfound";
+
+const App = () => (
+  <Switch>
+    <Route exact path={Pages.HomePage} component={Home} />
+    <Route exact path={Pages.Category + ":id"} component={Category} />
+    <Route exact path={Pages.Facility + ":id"} component={Facility} />
+    <Route exact path={Pages.Search + ":text"} component={Search} />
+    <Route exact path={Pages.About} component={About} />
+    <Route exact path={Pages.Faq} component={Faq} />
+    <Route component={Notfound} />
+  </Switch>
+);
 
 export default App;
