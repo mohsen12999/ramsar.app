@@ -4,7 +4,9 @@
 
 ## TODO
 
-- [ ] theme ui -> daisy
+- [x] theme ui -> daisy
+  - [x] add `tailwindcss` from https://tailwindcss.com/docs/guides/create-react-app
+  - [x] add daisy ui from https://daisy.js.org/
 - [ ] icon pack
 - [ ] add redux and config store
 - [ ] main page
