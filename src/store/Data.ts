@@ -5,6 +5,7 @@ import { ICategory, IFacility } from "../shares/Interfaces";
 import { GetDataFromLocalStorage } from "../shares/LocalStorages";
 import { DATA_URL } from "../shares/URLs";
 import { AppThunkAction } from "./";
+import { fakeCategories, fakeFacilities } from "../shares/FakeData";
 
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.
@@ -93,9 +94,15 @@ export const reducer: Reducer<IDataState> = (
 
   switch (action.type) {
     case DataActions.DATA_REQUEST:
-      const cachedDate = GetDataFromLocalStorage();
-      return cachedDate
-        ? { ...cachedDate, status: Status.LOADING }
+      const cachedData = GetDataFromLocalStorage();
+
+      if (process.env.NODE_ENV !== "production") {
+        cachedData.categories = { ...fakeCategories };
+        cachedData.facilities = { ...fakeFacilities };
+      }
+
+      return cachedData
+        ? { ...cachedData, status: Status.LOADING }
         : { ...state, status: Status.LOADING };
 
     case DataActions.DATA_FAILURE:
