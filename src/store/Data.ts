@@ -85,8 +85,11 @@ export const reducer: Reducer<IDataState> = (
   if (state === undefined) {
     return {
       status: Status.INIT,
-      categories: [],
-      facilities: [],
+      // TODO: Remove for production
+      categories: fakeCategories,
+      facilities: fakeFacilities,
+      //categories: [],
+      //facilities: [],
     };
   }
 
@@ -95,11 +98,6 @@ export const reducer: Reducer<IDataState> = (
   switch (action.type) {
     case DataActions.DATA_REQUEST:
       const cachedData = GetDataFromLocalStorage();
-
-      if (process.env.NODE_ENV !== "production") {
-        cachedData.categories = { ...fakeCategories };
-        cachedData.facilities = { ...fakeFacilities };
-      }
 
       return cachedData
         ? { ...cachedData, status: Status.LOADING }
