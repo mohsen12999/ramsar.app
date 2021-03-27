@@ -13,4 +13,9 @@ module.exports = {
       colors: require("daisyui/colors"),
     },
   },
+  daisyui: {
+    styled: true,
+    themes: false,
+    rtl: true,
+  },
 };
