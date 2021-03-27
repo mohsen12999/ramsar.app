@@ -25,8 +25,15 @@ const Layout: React.FC = ({ children }) => (
             </svg>
           </label>
         </div>
-        <div className="flex-1 px-2 mx-2">
-          <span>رامسر اپ</span>
+        <div className="flex-1 px-2 mx-2 items-center">
+          <span className="text-lg font-bold">رامسر اپ</span>
+          <div className="form-control">
+            <input
+              type="text"
+              placeholder="جستجو"
+              className="input input-ghost"
+            />
+          </div>
         </div>
         <div className="flex-none hidden lg:block">
           <ul className="menu horizontal">
