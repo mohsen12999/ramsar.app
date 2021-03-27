@@ -12,12 +12,32 @@ import Notfound from "./pages/Notfound";
 
 const App = () => (
   <Switch>
-    <Route exact path={Pages.HomePage} component={Home} />
-    <Route exact path={Pages.Category + ":id"} component={Category} />
-    <Route exact path={Pages.Facility + ":id"} component={Facility} />
-    <Route exact path={Pages.Search + ":text"} component={Search} />
-    <Route exact path={Pages.About} component={About} />
-    <Route exact path={Pages.Faq} component={Faq} />
+    <Route
+      exact
+      path={process.env.PUBLIC_URL + Pages.HomePage}
+      component={Home}
+    />
+    <Route
+      exact
+      path={process.env.PUBLIC_URL + Pages.Category + ":id"}
+      component={Category}
+    />
+    <Route
+      exact
+      path={process.env.PUBLIC_URL + Pages.Facility + ":id"}
+      component={Facility}
+    />
+    <Route
+      exact
+      path={process.env.PUBLIC_URL + Pages.Search + ":text"}
+      component={Search}
+    />
+    <Route
+      exact
+      path={process.env.PUBLIC_URL + Pages.About}
+      component={About}
+    />
+    <Route exact path={process.env.PUBLIC_URL + Pages.Faq} component={Faq} />
     <Route component={Notfound} />
   </Switch>
 );
