@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Pages } from "../shares/URLs";
 
+// TODO: upload data at start (status = init)
 const Layout: React.FC = ({ children }) => (
   <div className="rounded-lg shadow bg-base-200 drawer h-screen">
     <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -16,9 +17,9 @@ const Layout: React.FC = ({ children }) => (
               className="inline-block w-6 h-6 stroke-current"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6h16M4 12h16M4 18h16"
               ></path>
             </svg>
