@@ -9,7 +9,8 @@
   - [x] add daisy ui from https://daisy.js.org/
 - [x] system worker setting
 - [x] add redux and config store
-- [ ] icon pack
+- [ ] icon pack - https://icons8.com/
+- [ ] add font
 - [ ] main page
 - [ ] category page
 - [ ] about page
