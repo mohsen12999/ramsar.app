@@ -2,10 +2,11 @@ export const DATA_URL = "/api/public";
 
 export enum Pages {
   HomePage = "/",
-  Faq = "/faq",
-  Category = "/category/",
-  Facility = "/facility/",
-  Search = "/search/",
+  Register = "/register",
   About = "/about",
-  Notfound = "/notfound",
+  // Faq = "/faq",
+  // Category = "/category/",
+  // Facility = "/facility/",
+  // Search = "/search/",
+  // Notfound = "/notfound",
 }

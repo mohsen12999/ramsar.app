@@ -3,41 +3,32 @@ import { Route, Switch } from "react-router";
 import { Pages } from "./shares/URLs";
 
 import Home from "./pages/Home";
-import Category from "./pages/Category";
-import Facility from "./pages/Facility";
-import Search from "./pages/Search";
+// import Category from "./pages/Category";
+// import Facility from "./pages/Facility";
+// import Search from "./pages/Search";
+// import Faq from "./pages/Faq";
 import About from "./pages/About";
-import Faq from "./pages/Faq";
 import Notfound from "./pages/Notfound";
+import Register from "./pages/Register";
 
 const App = () => (
   <Switch>
     <Route
       exact
-      path={process.env.PUBLIC_URL + Pages.HomePage}
-      component={Home}
+      path={process.env.PUBLIC_URL + Pages.Register}
+      component={Register}
     />
-    <Route
-      exact
-      path={process.env.PUBLIC_URL + Pages.Category + ":id"}
-      component={Category}
-    />
-    <Route
-      exact
-      path={process.env.PUBLIC_URL + Pages.Facility + ":id"}
-      component={Facility}
-    />
-    <Route
-      exact
-      path={process.env.PUBLIC_URL + Pages.Search + ":text"}
-      component={Search}
-    />
+
     <Route
       exact
       path={process.env.PUBLIC_URL + Pages.About}
       component={About}
     />
-    <Route exact path={process.env.PUBLIC_URL + Pages.Faq} component={Faq} />
+
+    <Route
+      path={process.env.PUBLIC_URL + Pages.HomePage + ":text?"}
+      component={Home}
+    />
     <Route component={Notfound} />
   </Switch>
 );
