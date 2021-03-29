@@ -9,3 +9,7 @@
 .card-body {
   padding: var(--padding-card);
 }
+
+.input-ghost {
+  --tw-bg-opacity: 0.3;
+}
