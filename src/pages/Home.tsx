@@ -15,38 +15,121 @@ interface IParamTypes {
 }
 
 const Home: React.FC<IHomeProps> = ({ categories }) => {
-  const { id } = useParams<IParamTypes>();
-
-  const pId = Number(id ?? 0);
-  console.log(id, pId);
+  const [searchText, SetSearchText] = React.useState<string>();
 
   return (
-    <Layout>
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-col-6">
-        {categories
-          .filter((c) => c.parentId === pId)
-          .map((category) => (
-            <Link
-              key={category.id}
-              to={process.env.PUBLIC_URL + Pages.HomePage + category.id}
-            >
-              <div className="card bordered shadow-2xl hover:shadow-lg">
-                <figure>
-                  <img
-                    src={process.env.PUBLIC_URL + category.img}
-                    alt={category.name}
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title text-center">{category.name}</h2>
+    <div>
+      <main>
+        <div className={"flex " + (searchText ? "flex-row" : "flex-col")}>
+          <div className="max-w-xs m-auto">
+            <figure>
+              <img
+                src={process.env.PUBLIC_URL + "/img/national-park.png"}
+                alt="رامسر اپ"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title text-center vazir-font">رامسر اپ</h2>
+            </div>
+          </div>
+          <div className="w-2/3 md:max-w-sm m-auto">
+            <div className="form-control">
+              <input
+                type="text"
+                placeholder="جستجو"
+                value={searchText}
+                onChange={(e) => {
+                  SetSearchText(e.target.value);
+                }}
+                className="input input-info input-bordered vazir-font"
+              />
+              <label className="label">
+                <span className="label-text-alt vazir-font">
+                  مثل کلیدساز یا تاکسی یا بیمارستان
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap justify-evenly">
+          {categories
+            .filter((c) => c.parentId === 0)
+            .map((category) => (
+              <Link
+                className="max-w-xs m-2"
+                key={category.id}
+                to={process.env.PUBLIC_URL}
+              >
+                <div className="card bordered shadow-2xl hover:shadow-lg">
+                  <figure>
+                    <img
+                      src={process.env.PUBLIC_URL + category.img}
+                      alt={category.name}
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title text-center vazir-font">
+                      {category.name}
+                    </h2>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-      </div>
-    </Layout>
+              </Link>
+            ))}
+        </div>
+      </main>
+      <footer>
+        <div className="py-4 flex">
+          <ul className="menu items-stretch px-3 shadow-lg bg-base-100 bg-neutral-focus horizontal rounded-box m-auto vazir-font">
+            <li>
+              <a>صفحه نخست</a>
+            </li>
+            <li>
+              <a>ثبت مکان جدید</a>
+            </li>
+            <li>
+              <a>درباره ما</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   );
 };
+
+// {
+//   const { id } = useParams<IParamTypes>();
+
+//   const pId = Number(id ?? 0);
+//   console.log(id, pId);
+
+//   return (
+//     <Layout>
+//       <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-col-6">
+//         {categories
+//           .filter((c) => c.parentId === pId)
+//           .map((category) => (
+//             <Link
+//               key={category.id}
+//               to={process.env.PUBLIC_URL + Pages.HomePage + category.id}
+//             >
+//               <div className="card bordered shadow-2xl hover:shadow-lg">
+//                 <figure>
+//                   <img
+//                     src={process.env.PUBLIC_URL + category.img}
+//                     alt={category.name}
+//                   />
+//                 </figure>
+//                 <div className="card-body">
+//                   <h2 className="card-title text-center">{category.name}</h2>
+//                 </div>
+//               </div>
+//             </Link>
+//           ))}
+//       </div>
+//     </Layout>
+//   );
+// };
 
 const mapStateToProps = (state: ApplicationState) => ({
   categories: state.data ? state.data.categories : [],
