@@ -14,6 +14,7 @@
   --tw-bg-opacity: 0.3;
 }
 
-main {
+main,
+.main {
   min-height: calc(100vh - 80px);
 }
