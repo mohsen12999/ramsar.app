@@ -9,16 +9,10 @@ import Home from "./pages/Home";
 // import Faq from "./pages/Faq";
 import About from "./pages/About";
 import Notfound from "./pages/Notfound";
-import Register from "./pages/Register";
+//import Register from "./pages/Register";
 
 const App = () => (
   <Switch>
-    <Route
-      exact
-      path={process.env.PUBLIC_URL + Pages.Register}
-      component={Register}
-    />
-
     <Route
       exact
       path={process.env.PUBLIC_URL + Pages.About}
@@ -29,6 +23,7 @@ const App = () => (
       path={process.env.PUBLIC_URL + Pages.HomePage + ":text?"}
       component={Home}
     />
+
     <Route component={Notfound} />
   </Switch>
 );
