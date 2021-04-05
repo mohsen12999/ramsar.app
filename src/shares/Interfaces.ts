@@ -9,6 +9,9 @@ export interface ICategory {
 export interface IFacility {
   id: number;
   name: string;
+  description: string;
+  address: string;
+  tel: string;
   tags: string;
 
   categoryId: number;
