@@ -2,19 +2,64 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
-import { ICategory } from "../shares/Interfaces";
+import BreadCrumbs from "../components/BreadCrumbs";
+import { ICategory, IFacility } from "../shares/Interfaces";
 import { ApplicationState } from "../store";
+import { Pages } from "../shares/URLs";
 
 interface IHomeProps {
   categories: ICategory[];
+  facilities: IFacility[];
 }
 
 interface IParamTypes {
-  id: string;
+  arg: string;
 }
 
-const Home: React.FC<IHomeProps> = ({ categories }) => {
-  const [searchText, SetSearchText] = React.useState<string>();
+const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
+  const [searchText, setSearchText] = React.useState<string>("");
+  const [categoryId, setCategoryId] = React.useState<number>(0);
+
+  const [categoryList, setCategoryList] = React.useState<ICategory[]>([]);
+  const [facilityList, setFacilityList] = React.useState<IFacility[]>([]);
+  const [titleElement, setTitleElement] = React.useState<JSX.Element>();
+  // TODO: bread crumbs
+
+  // save query arg in start of app
+  const { arg } = useParams<IParamTypes>();
+  React.useEffect(() => {
+    const id = Number(arg);
+
+    if (id !== undefined && !isNaN(id)) {
+      setCategoryId(id);
+    } else if (arg && arg.trim() !== "") {
+      setSearchText(arg.trim());
+    }
+  }, [arg]);
+
+  // for change search
+  React.useEffect(() => {
+    if (searchText.length !== 0) {
+      // search in all facility
+      setCategoryList(categories.filter((c) => c.name.includes(searchText)));
+      setFacilityList(
+        facilities.filter(
+          (f) => f.name.includes(searchText) || f.tags.includes(searchText)
+        )
+      );
+      setTitleElement(
+        <h2 className="text-center">نتایج جستجو برای {searchText}</h2>
+      );
+    } else {
+      setCategoryList(categories.filter((c) => c.parentId === categoryId));
+      setFacilityList(facilities.filter((f) => f.categoryId === categoryId));
+      setTitleElement(
+        <div className="text-sm breadcrumbs">
+          <BreadCrumbs categoryId={categoryId} categories={categories} />
+        </div>
+      );
+    }
+  }, [categoryId, categories, searchText, facilities]);
 
   return (
     <Layout>
@@ -37,7 +82,7 @@ const Home: React.FC<IHomeProps> = ({ categories }) => {
               placeholder="جستجو"
               value={searchText}
               onChange={(e) => {
-                SetSearchText(e.target.value);
+                setSearchText(e.target.value);
               }}
               className="input input-info input-bordered vazir-font"
             />
@@ -50,30 +95,30 @@ const Home: React.FC<IHomeProps> = ({ categories }) => {
         </div>
       </div>
 
+      <div className="max-w-xs m-auto">{titleElement}</div>
+
       <div className="flex flex-wrap justify-evenly">
-        {categories
-          .filter((c) => c.parentId === 0)
-          .map((category) => (
-            <Link
-              className="max-w-xs m-2"
-              key={category.id}
-              to={process.env.PUBLIC_URL}
-            >
-              <div className="card bordered shadow-2xl hover:shadow-lg">
-                <figure>
-                  <img
-                    src={process.env.PUBLIC_URL + category.img}
-                    alt={category.name}
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title text-center vazir-font">
-                    {category.name}
-                  </h2>
-                </div>
+        {categoryList.map((category) => (
+          <Link
+            className="max-w-xs m-2"
+            key={category.id}
+            to={process.env.PUBLIC_URL + Pages.HomePage + category.id}
+          >
+            <div className="card bordered shadow-2xl hover:shadow-lg">
+              <figure>
+                <img
+                  src={process.env.PUBLIC_URL + category.img}
+                  alt={category.name}
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title text-center vazir-font">
+                  {category.name}
+                </h2>
               </div>
-            </Link>
-          ))}
+            </div>
+          </Link>
+        ))}
       </div>
     </Layout>
   );
@@ -115,6 +160,7 @@ const Home: React.FC<IHomeProps> = ({ categories }) => {
 
 const mapStateToProps = (state: ApplicationState) => ({
   categories: state.data ? state.data.categories : [],
+  facilities: state.data ? state.data.facilities : [],
 });
 
 const mapDispatchToProps = {};
