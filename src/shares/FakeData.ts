@@ -327,7 +327,7 @@ export const fakeFacilities: IFacility[] = [
 
   {
     id: 60101,
-    name: "اداره داراپی",
+    name: "اداره دارایی",
     address: "جاده بالا بعد از سه راه آبگرم",
     description: "",
     tel: "",
