@@ -33,7 +33,10 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
     if (id !== undefined && !isNaN(id)) {
       setCategoryId(id);
     } else if (arg && arg.trim() !== "") {
+      setCategoryId(0);
       setSearchText(arg.trim());
+    } else {
+      setCategoryId(0);
     }
   }, [arg]);
 
