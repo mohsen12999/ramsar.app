@@ -17,7 +17,15 @@
 - [ ] faq page
 - [ ] search page
 - [ ] single facility page
-- [ ] add bread crumbs
-- [ ] install btn
+- [x] add bread crumbs
+- [x] install btn
 - [ ] change theme btn
-- [ ] add github page
+- [x] add github page
+
+## Other TODO
+
+- [x] telegram channel
+- [ ] instagram page
+- [ ] buy host -> laravel
+- [ ] social network desc in head
+- [ ] favorite facility
