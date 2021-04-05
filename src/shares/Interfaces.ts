@@ -9,7 +9,7 @@ export interface ICategory {
 export interface IFacility {
   id: number;
   name: string;
-  tags: string[];
+  tags: string;
 
   categoryId: number;
 }
