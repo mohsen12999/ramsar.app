@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/ramsar.app/static/css/main.620be530.chunk.css",
-    "main.js": "/ramsar.app/static/js/main.47d21129.chunk.js",
-    "main.js.map": "/ramsar.app/static/js/main.47d21129.chunk.js.map",
+    "main.css": "/ramsar.app/static/css/main.56dffbc3.chunk.css",
+    "main.js": "/ramsar.app/static/js/main.1bbeeb11.chunk.js",
+    "main.js.map": "/ramsar.app/static/js/main.1bbeeb11.chunk.js.map",
     "runtime-main.js": "/ramsar.app/static/js/runtime-main.2f7393ac.js",
     "runtime-main.js.map": "/ramsar.app/static/js/runtime-main.2f7393ac.js.map",
-    "static/js/2.b26099bf.chunk.js": "/ramsar.app/static/js/2.b26099bf.chunk.js",
-    "static/js/2.b26099bf.chunk.js.map": "/ramsar.app/static/js/2.b26099bf.chunk.js.map",
+    "static/js/2.b66000f2.chunk.js": "/ramsar.app/static/js/2.b66000f2.chunk.js",
+    "static/js/2.b66000f2.chunk.js.map": "/ramsar.app/static/js/2.b66000f2.chunk.js.map",
     "static/js/3.92cefd40.chunk.js": "/ramsar.app/static/js/3.92cefd40.chunk.js",
     "static/js/3.92cefd40.chunk.js.map": "/ramsar.app/static/js/3.92cefd40.chunk.js.map",
     "index.html": "/ramsar.app/index.html",
     "service-worker.js": "/ramsar.app/service-worker.js",
     "service-worker.js.map": "/ramsar.app/service-worker.js.map",
-    "static/css/main.620be530.chunk.css.map": "/ramsar.app/static/css/main.620be530.chunk.css.map",
-    "static/js/2.b26099bf.chunk.js.LICENSE.txt": "/ramsar.app/static/js/2.b26099bf.chunk.js.LICENSE.txt"
+    "static/css/main.56dffbc3.chunk.css.map": "/ramsar.app/static/css/main.56dffbc3.chunk.css.map",
+    "static/js/2.b66000f2.chunk.js.LICENSE.txt": "/ramsar.app/static/js/2.b66000f2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2f7393ac.js",
-    "static/js/2.b26099bf.chunk.js",
-    "static/css/main.620be530.chunk.css",
-    "static/js/main.47d21129.chunk.js"
+    "static/js/2.b66000f2.chunk.js",
+    "static/css/main.56dffbc3.chunk.css",
+    "static/js/main.1bbeeb11.chunk.js"
   ]
 }
