@@ -20,7 +20,7 @@ const App = () => (
     />
 
     <Route
-      path={process.env.PUBLIC_URL + Pages.HomePage + ":text?"}
+      path={process.env.PUBLIC_URL + Pages.HomePage + ":arg?"}
       component={Home}
     />
 
