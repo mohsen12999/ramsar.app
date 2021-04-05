@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ramsar.app/static/css/main.9aff94c2.chunk.css",
-    "main.js": "/ramsar.app/static/js/main.a8d947b2.chunk.js",
-    "main.js.map": "/ramsar.app/static/js/main.a8d947b2.chunk.js.map",
+    "main.js": "/ramsar.app/static/js/main.e3267fac.chunk.js",
+    "main.js.map": "/ramsar.app/static/js/main.e3267fac.chunk.js.map",
     "runtime-main.js": "/ramsar.app/static/js/runtime-main.2f7393ac.js",
     "runtime-main.js.map": "/ramsar.app/static/js/runtime-main.2f7393ac.js.map",
     "static/js/2.b66000f2.chunk.js": "/ramsar.app/static/js/2.b66000f2.chunk.js",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.2f7393ac.js",
     "static/js/2.b66000f2.chunk.js",
     "static/css/main.9aff94c2.chunk.css",
-    "static/js/main.a8d947b2.chunk.js"
+    "static/js/main.e3267fac.chunk.js"
   ]
 }
