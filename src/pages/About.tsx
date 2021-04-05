@@ -50,6 +50,7 @@ const About = () => (
             <a
               href="https://t.me/RamsarApp"
               target="_blank"
+              rel="noreferrer"
               dir="ltr"
               className="btn btn-sm btn-outline btn-primary mr-2"
             >
@@ -69,8 +70,9 @@ const About = () => (
             </a>
 
             <a
-              href="mailto:info@Ramsar.App"
+              href="mailto:info@ramsar.app"
               target="_blank"
+              rel="noreferrer"
               dir="ltr"
               className="btn btn-sm btn-outline btn-accent mr-2"
             >

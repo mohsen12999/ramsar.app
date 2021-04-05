@@ -13,7 +13,7 @@
 - [x] add font
 - [ ] main page
 - [ ] category page
-- [ ] about page
+- [x] about page
 - [ ] faq page
 - [ ] search page
 - [ ] single facility page
