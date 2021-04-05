@@ -23,7 +23,6 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
   const [categoryList, setCategoryList] = React.useState<ICategory[]>([]);
   const [facilityList, setFacilityList] = React.useState<IFacility[]>([]);
   const [titleElement, setTitleElement] = React.useState<JSX.Element>();
-  // TODO: bread crumbs
 
   // save query arg in start of app
   const { arg } = useParams<IParamTypes>();
@@ -98,7 +97,19 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
         </div>
       </div>
 
-      <div className="max-w-xs m-auto">{titleElement}</div>
+      <div className="card shadow max-w-xs m-auto">{titleElement}</div>
+
+      <div className="flex flex-wrap justify-evenly">
+        {facilityList.map((facility) => (
+          <div className="card shadow p-6">
+            <div className="card-body">
+              <h2 className="card-title vazir-font">{facility.name}</h2>
+              <p className="vazir-font">{facility.description}</p>
+              <p className="vazir-font">{facility.address}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
       <div className="flex flex-wrap justify-evenly">
         {categoryList.map((category) => (
