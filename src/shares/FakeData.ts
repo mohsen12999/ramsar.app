@@ -177,7 +177,7 @@ export const fakeFacilities: IFacility[] = [
     name: "کلیدسازی محمدی",
     address: "ابریشم محله - کوچه ارشاد",
     description: "",
-    tel: "",
+    tel: "09350646526",
     tags: "",
     categoryId: 201,
   },
