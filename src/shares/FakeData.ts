@@ -69,7 +69,7 @@ export const fakeFacilities: IFacility[] = [
   {
     id: 102,
     name: "اورژانس",
-    address: "بیمارتان رامسر",
+    address: "بیمارستان رامسر",
     description: "فوریت پزشکی و درمانی",
     tel: "115",
     tags: "",
