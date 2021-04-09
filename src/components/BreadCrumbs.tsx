@@ -30,17 +30,15 @@ const BreadCrumbs: React.FC<IBreadCrumbsProps> = ({
   }
 
   let categoryTree: ICategory[] = [];
-  let id = thisCategory.parentId;
-
-  do {
-    const cat = categories.find((c) => c.id === id);
+  for (let index = thisCategory.parentId; index >= 0; ) {
+    const cat = categories.find((c) => c.id === index);
     if (cat) {
       categoryTree.unshift(cat);
-      id = cat.parentId;
+      index = cat.parentId;
     } else {
-      id = 0;
+      index = 0;
     }
-  } while (id !== 0);
+  }
 
   return (
     <ul>
