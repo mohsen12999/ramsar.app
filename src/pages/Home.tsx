@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import BreadCrumbs from "../components/BreadCrumbs";
 import { ICategory, IFacility } from "../shares/Interfaces";
+import { APP_LOGO } from "../shares/Constants";
 import { ApplicationState } from "../store";
 import { Pages } from "../shares/URLs";
 
@@ -31,16 +32,21 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
 
     if (id !== undefined && !isNaN(id)) {
       setCategoryId(id);
+      setSearchText("");
     } else if (arg && arg.trim() !== "") {
       setCategoryId(0);
       setSearchText(arg.trim());
     } else {
       setCategoryId(0);
+      setSearchText("");
     }
   }, [arg]);
 
   // for change search
   React.useEffect(() => {
+    setCategoryList([]);
+    setFacilityList([]);
+    
     if (searchText.length !== 0) {
       // search in all facility
       setCategoryList(categories.filter((c) => c.name.includes(searchText)));
@@ -68,10 +74,7 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
       <div className={"flex " + (searchText ? "flex-row" : "flex-col")}>
         <div className="max-w-xs m-auto">
           <figure>
-            <img
-              src={process.env.PUBLIC_URL + "/img/national-park.png"}
-              alt="رامسر اپ"
-            />
+            <img src={process.env.PUBLIC_URL + APP_LOGO} alt="رامسر اپ" />
           </figure>
           <div className="card-body">
             <h2 className="card-title text-center vazir-font">رامسر اپ</h2>
@@ -97,15 +100,32 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
         </div>
       </div>
 
-      <div className="card shadow max-w-xs m-auto">{titleElement}</div>
+      <div className="card shadow max-w-xs m-auto vazir-font">
+        {titleElement}
+      </div>
 
       <div className="flex flex-wrap justify-evenly">
         {facilityList.map((facility) => (
-          <div className="card shadow p-6">
-            <div className="card-body">
+          <div
+            key={facility.id}
+            className="card shadow p-6 lg:card-side bordered"
+          >
+            <figure>
+              <img
+                width="100"
+                alt={facility.name}
+                src={
+                  process.env.PUBLIC_URL +
+                  (facility.img ? facility.img : APP_LOGO)
+                }
+              />
+            </figure>
+            <div className="card-body justify-evenly">
               <h2 className="card-title vazir-font">{facility.name}</h2>
-              <p className="vazir-font">{facility.description}</p>
-              <p className="vazir-font">{facility.address}</p>
+              {facility.description && facility.description.length > 0 && (
+                <p className="vazir-font">{facility.description}</p>
+              )}
+              <p className="vazir-font">آدرس: {facility.address}</p>
             </div>
           </div>
         ))}
