@@ -57,6 +57,27 @@ export const fakeCategories: ICategory[] = [
 
 export const fakeFacilities: IFacility[] = [
   {
+    id: 101,
+    name: "آتش نشانی",
+    address: "خیابان سخت سر - جاده بالا",
+    description: "",
+    tel: "125",
+    tags: "",
+    categoryId: 1,
+    img: "/img/fire-element.png",
+  },
+  {
+    id: 102,
+    name: "اورژانس",
+    address: "بیمارتان رامسر",
+    description: "فوریت پزشکی و درمانی",
+    tel: "115",
+    tags: "",
+    categoryId: 1,
+    img: "/img/ambulance.png",
+  },
+
+  {
     id: 10101,
     name: "بیمارستان رامسر",
     address: " ابریشم محله خیابان مطهری میدان انقلاب",
@@ -161,7 +182,7 @@ export const fakeFacilities: IFacility[] = [
     categoryId: 201,
   },
   {
-    id: 20101,
+    id: 20102,
     name: "کلیدسازی فیروز بخش",
     address: "ابریشم محله - روبروی دبرستان امام",
     description: "",
@@ -172,7 +193,7 @@ export const fakeFacilities: IFacility[] = [
 
   {
     id: 20201,
-    name: "تعویض روغنی مروارید",
+    name: "تیون آپ مروارید",
     address: "خیابان عباس مفرد - رضی محله",
     description: "",
     tel: "",
@@ -204,16 +225,25 @@ export const fakeFacilities: IFacility[] = [
     id: 30201,
     name: "موسسه نسیم",
     address: "نارنج بن - جنب بانک صادرات مرکزی",
-    description: "",
+    description: "کلاس‌های پیانو گیتار تنبک و دیگر سازهای موسیقیایی",
     tel: "",
     tags: "",
     categoryId: 302,
   },
   {
-    id: 30201,
+    id: 30202,
     name: "موسسه ادریبهشت",
     address: "ابریشم محله روبروی کتابخانه احمدی‌نژاد",
-    description: "",
+    description: "کلاس‌های پیانو گیتار تنبک و دیگر سازهای موسیقیایی",
+    tel: "",
+    tags: "",
+    categoryId: 302,
+  },
+  {
+    id: 30203,
+    name: "موسسه خوارزمی",
+    address: "نارنج بن - جنب بانک صادرات مرکزی",
+    description: "کلاس‌های تقویتی و کنکور",
     tel: "",
     tags: "",
     categoryId: 302,
