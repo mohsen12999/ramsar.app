@@ -48,7 +48,7 @@ const BreadCrumbs: React.FC<IBreadCrumbsProps> = ({
         <Link to={process.env.PUBLIC_URL + Pages.HomePage}> صفحه نخست</Link>
       </li>
       {categoryTree.map((cat) => (
-        <li>
+        <li key={cat.id}>
           <Link to={process.env.PUBLIC_URL + Pages.HomePage + cat.id}>
             {cat.name}
           </Link>
