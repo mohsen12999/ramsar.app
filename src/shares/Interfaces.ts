@@ -14,5 +14,7 @@ export interface IFacility {
   tel: string;
   tags: string;
 
+  img?: string;
+
   categoryId: number;
 }
