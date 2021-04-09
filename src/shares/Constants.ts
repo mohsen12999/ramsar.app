@@ -5,3 +5,5 @@ export enum Status {
   SUCCEEDED = "SUCCEEDED",
   FAILED = "FAILED",
 }
+
+export const APP_LOGO = "/img/national-park.png";
