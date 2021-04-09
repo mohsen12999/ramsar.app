@@ -46,7 +46,7 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
   React.useEffect(() => {
     setCategoryList([]);
     setFacilityList([]);
-    
+
     if (searchText.length !== 0) {
       // search in all facility
       setCategoryList(categories.filter((c) => c.name.includes(searchText)));
@@ -126,6 +126,14 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
                 <p className="vazir-font">{facility.description}</p>
               )}
               <p className="vazir-font">آدرس: {facility.address}</p>
+              {facility.tel && facility.tel.length > 0 && (
+                <p className="vazir-font">
+                  تلفن:
+                  <a className="btn btn-link" href={"tel:" + facility.tel}>
+                    {facility.tel}
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         ))}
