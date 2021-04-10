@@ -21,11 +21,15 @@
 - [x] install btn
 - [ ] change theme btn
 - [x] add github page
+- [ ] read from cache data
+- [ ] load from server
+- [ ] show online/offline status [read from cache or fetch flag]
 
 ## Other TODO
 
 - [x] telegram channel
 - [ ] instagram page
-- [ ] buy host -> laravel
+- [x] buy host
+- [ ] make laravel backend
 - [ ] social network desc in head
 - [ ] favorite facility
