@@ -19,7 +19,8 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->string('img');
 
-            $table->foreignId('category_id')->nullable()->constrained();
+            $table->unsignedInteger('category_id');
+            // $table->foreignId('category_id')->nullable()->constrained();
 
             $table->timestamps();
         });
