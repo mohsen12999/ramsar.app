@@ -1,3 +1,6 @@
 # Ramsar App
 
-- free app for show Ramsar facility
+## TODO
+
+- [ ] make db
+- [ ] make api routes
