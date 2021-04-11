@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import BreadCrumbs from "../components/BreadCrumbs";
+import FacilityThumb from "../components/FacilityThumb";
+import CategoryThumb from "../components/CategoryThumb";
 import { ICategory, IFacility } from "../shares/Interfaces";
 import { APP_LOGO } from "../shares/Constants";
 import { ApplicationState } from "../store";
-import { Pages } from "../shares/URLs";
 
 interface IHomeProps {
   categories: ICategory[];
@@ -106,60 +107,13 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
 
       <div className="flex flex-wrap justify-evenly">
         {facilityList.map((facility) => (
-          <div
-            key={facility.id}
-            className="card shadow p-6 lg:card-side bordered"
-          >
-            <figure>
-              <img
-                width="100"
-                alt={facility.name}
-                src={
-                  process.env.PUBLIC_URL +
-                  (facility.img ? facility.img : APP_LOGO)
-                }
-              />
-            </figure>
-            <div className="card-body justify-evenly">
-              <h2 className="card-title vazir-font">{facility.name}</h2>
-              {facility.description && facility.description.length > 0 && (
-                <p className="vazir-font">{facility.description}</p>
-              )}
-              <p className="vazir-font">آدرس: {facility.address}</p>
-              {facility.tel && facility.tel.length > 0 && (
-                <p className="vazir-font">
-                  تلفن:
-                  <a className="btn btn-link" href={"tel:" + facility.tel}>
-                    {facility.tel}
-                  </a>
-                </p>
-              )}
-            </div>
-          </div>
+          <FacilityThumb key={facility.id} facility={facility} />
         ))}
       </div>
 
       <div className="flex flex-wrap justify-evenly">
         {categoryList.map((category) => (
-          <Link
-            className="max-w-xs m-2"
-            key={category.id}
-            to={process.env.PUBLIC_URL + Pages.HomePage + category.id}
-          >
-            <div className="card bordered shadow-2xl hover:shadow-lg">
-              <figure>
-                <img
-                  src={process.env.PUBLIC_URL + category.img}
-                  alt={category.name}
-                />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title text-center vazir-font">
-                  {category.name}
-                </h2>
-              </div>
-            </div>
-          </Link>
+          <CategoryThumb key={category.id} category={category} />
         ))}
       </div>
     </Layout>
