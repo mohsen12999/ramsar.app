@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.drawer-toggle ~ .drawer-side > .drawer-overlay + * {
+  --tw-translate-x: 100%;
+}
+
+.card-body {
+  padding: var(--padding-card);
+}
+
+.input-ghost {
+  --tw-bg-opacity: 0.3;
+}
+
+main,
+.main {
+  min-height: calc(100vh - 80px);
+}
+
+.breadcrumbs > ul > li + ::before {
+  --tw-rotate: -45deg;
+}
