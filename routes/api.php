@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// use App\Http\Controllers\DataController;
+use App\Http\Controllers\PublicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 // Route::get('/get_data', [DataController::class, 'index']);
+Route::get('/public', [PublicController::class, 'index']);
