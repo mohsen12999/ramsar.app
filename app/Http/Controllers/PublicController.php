@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Facility;
 
 class PublicController extends Controller
 {
@@ -10,19 +12,12 @@ class PublicController extends Controller
     public function index()
     {
         // $authors = User::author_user()->get();
-        return response()->json([
-            // 'genres' => $genres,
-            // 'books' => $books,
-            // 'chapters' => $chapters,
-            // 'subjects' => $subjects,
-            // 'posts' => $posts,
-            // 'authors' => $authors,
+        $categories = Category::all();
+        $facilities = Facility::all();
 
-            // 'popBooks' => $popBooks,
-            // 'newBooks' => $newBooks,
-            // 'bestAuthors' => $bestAuthors,
-            // 'bestGenres' => $bestGenres,
-            // 'latestPosts' => $latestPosts,
+        return response()->json([
+            'categories' => $categories,
+            'facilities' => $facilities,
 
             'success' => true
         ], 200);
