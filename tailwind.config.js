@@ -2,6 +2,7 @@ module.exports = {
     purge: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
+        "./resources/**/*.ts",
         "./resources/**/*.vue",
     ],
     darkMode: false, // or 'media' or 'class'
@@ -11,5 +12,5 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [require("daisyui")],
 };
