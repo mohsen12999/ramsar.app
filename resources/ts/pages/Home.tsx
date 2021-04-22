@@ -8,23 +8,30 @@ import CategoryThumb from "../components/CategoryThumb";
 import { ICategory, IFacility } from "../shares/Interfaces";
 import { APP_LOGO } from "../shares/Constants";
 import { ApplicationState } from "../store";
+import { actionCreators } from "../store/Data";
 
 interface IHomeProps {
     categories: ICategory[];
     facilities: IFacility[];
+
+    LoadData: Function;
 }
 
 interface IParamTypes {
     arg: string;
 }
 
-const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
+const Home: React.FC<IHomeProps> = ({ categories, facilities, LoadData }) => {
     const [searchText, setSearchText] = React.useState<string>("");
     const [categoryId, setCategoryId] = React.useState<number>(0);
 
     const [categoryList, setCategoryList] = React.useState<ICategory[]>([]);
     const [facilityList, setFacilityList] = React.useState<IFacility[]>([]);
     const [titleElement, setTitleElement] = React.useState<JSX.Element>();
+
+    React.useEffect(() => {
+        LoadData();
+    }, []);
 
     // save query arg in start of app
     const { arg } = useParams<IParamTypes>();
@@ -65,10 +72,10 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities }) => {
             );
         } else {
             setCategoryList(
-                categories.filter((c) => c.parentId === categoryId)
+                categories.filter((c) => c.category_id === categoryId)
             );
             setFacilityList(
-                facilities.filter((f) => f.categoryId === categoryId)
+                facilities.filter((f) => f.category_id === categoryId)
             );
             setTitleElement(
                 <div className="text-sm breadcrumbs">
@@ -138,6 +145,8 @@ const mapStateToProps = (state: ApplicationState) => ({
     facilities: state.data ? state.data.facilities : [],
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+    LoadData: actionCreators.loadData,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
