@@ -30,7 +30,7 @@ const BreadCrumbs: React.FC<IBreadCrumbsProps> = ({
     }
 
     let categoryTree: ICategory[] = [];
-    for (let index = thisCategory.parentId; index >= 0; ) {
+    for (let index = thisCategory.parentId; index > 0; ) {
         const cat = categories.find((c) => c.id === index);
         if (cat) {
             categoryTree.unshift(cat);
