@@ -20,5 +20,5 @@ main,
 }
 
 .breadcrumbs > ul > li + ::before {
-    --tw-rotate: -45deg;
+    --tw-rotate: -135deg;
 }
