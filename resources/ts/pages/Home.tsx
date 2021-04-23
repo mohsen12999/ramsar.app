@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import BreadCrumbs from "../components/BreadCrumbs";
 import FacilityThumb from "../components/FacilityThumb";
@@ -9,6 +9,7 @@ import { ICategory, IFacility } from "../shares/Interfaces";
 import { APP_LOGO } from "../shares/Constants";
 import { ApplicationState } from "../store";
 import { actionCreators } from "../store/Data";
+import { Pages } from "../shares/URLs";
 
 interface IHomeProps {
     categories: ICategory[];
@@ -91,16 +92,19 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities, LoadData }) => {
     return (
         <Layout>
             <div className={"flex " + (searchText ? "flex-row" : "flex-col")}>
-                <div className="max-w-xs m-auto">
-                    <figure>
-                        <img src={APP_LOGO} alt="رامسر اپ" />
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title text-center vazir-font">
-                            رامسر اپ
-                        </h2>
+                <Link className="max-w-xs m-auto" to={Pages.HomePage}>
+                    <div className="max-w-xs m-auto">
+                        <figure>
+                            <img src={APP_LOGO} alt="رامسر اپ" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title text-center vazir-font">
+                                رامسر اپ
+                            </h2>
+                        </div>
                     </div>
-                </div>
+                </Link>
+
                 <div className="w-2/3 md:max-w-sm m-auto">
                     <div className="form-control">
                         <input
