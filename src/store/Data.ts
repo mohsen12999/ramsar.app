@@ -2,10 +2,15 @@ import axios from "axios";
 import { Action, Reducer } from "redux";
 import { Status } from "../shares/Constants";
 import { ICategory, IFacility } from "../shares/Interfaces";
-import { GetDataFromLocalStorage } from "../shares/LocalStorages";
 import { DATA_URL } from "../shares/URLs";
 import { AppThunkAction } from "./";
 import { fakeCategories, fakeFacilities } from "../shares/FakeData";
+import {
+  GetCategoriesFromLocalStorage,
+  GetFacilitiesFromLocalStorage,
+  SaveCategoriesToLocalStorage,
+  SaveFacilitiesToLocalStorage,
+} from "../shares/LocalStorages";
 
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.
@@ -50,29 +55,43 @@ export const actionCreators = {
     dispatch({ type: DataActions.DATA_REQUEST } as ILoadData);
 
     try {
-      axios.get(DATA_URL).then((response) => {
-        if (response && response.data && response.data.success) {
-          dispatch({
-            type: DataActions.DATA_SUCCESS,
-            payload: {
-              message: "axios success get data",
-              data: response.data,
-            },
-          });
-          return true;
-        } else {
+      axios
+        .get(DATA_URL)
+        .then((response) => {
+          if (response && response.data && response.data.success) {
+            dispatch({
+              type: DataActions.DATA_SUCCESS,
+              payload: {
+                message: "axios success get data",
+                data: response.data,
+              },
+            });
+            return true;
+          } else {
+            dispatch({
+              type: DataActions.DATA_FAILURE,
+              payload: {
+                message: "axios not success",
+                error: response,
+              },
+            });
+            return false;
+          }
+        })
+        .catch((error) => {
           dispatch({
             type: DataActions.DATA_FAILURE,
-            payload: { message: "axios not success", error: response },
+            payload: { message: "axios catch error", error: error },
           });
+          console.log("[error]", error);
           return false;
-        }
-      });
+        });
     } catch (error) {
       dispatch({
         type: DataActions.DATA_FAILURE,
         payload: { message: "axios catch error", error: error },
       });
+      console.log("[error]", error);
       return false;
     }
   },
@@ -97,11 +116,17 @@ export const reducer: Reducer<IDataState> = (
 
   switch (action.type) {
     case DataActions.DATA_REQUEST:
-      const cachedData = GetDataFromLocalStorage();
+      const cachedCategories = GetCategoriesFromLocalStorage();
+      const cachedFacilities = GetFacilitiesFromLocalStorage();
 
-      return cachedData
-        ? { ...cachedData, status: Status.LOADING }
-        : { ...state, status: Status.LOADING };
+      const initState = { ...state, status: Status.LOADING };
+      if (cachedCategories) {
+        initState.categories = cachedCategories;
+      }
+      if (cachedFacilities) {
+        initState.facilities = cachedFacilities;
+      }
+      return initState;
 
     case DataActions.DATA_FAILURE:
       return { ...state, status: Status.FAILED };
@@ -112,9 +137,11 @@ export const reducer: Reducer<IDataState> = (
         const currentState = { ...state };
         if (data.categories) {
           currentState.categories = data.categories;
+          SaveCategoriesToLocalStorage(data.categories);
         }
         if (data.facilities) {
           currentState.facilities = data.facilities;
+          SaveFacilitiesToLocalStorage(data.facilities);
         }
         return { ...currentState, status: Status.SUCCEEDED };
       }
