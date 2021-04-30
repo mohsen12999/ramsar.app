@@ -10,3 +10,8 @@ export enum Pages {
   // Search = "/search/",
   // Notfound = "/notfound",
 }
+
+export const MakeUrl = (url: string) =>
+  process && process.env && process.env.PUBLIC_URL
+    ? process.env.PUBLIC_URL + url
+    : url;
