@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Pages } from "../shares/URLs";
+import { MakeUrl, Pages } from "../shares/URLs";
 
 // TODO: upload data at start (status = init)
 const Layout: React.FC = ({ children }) => {
@@ -48,7 +48,7 @@ const Layout: React.FC = ({ children }) => {
         <div className="py-4 flex">
           <ul className="menu items-stretch px-3 shadow-lg bg-base-100 bg-neutral-focus horizontal rounded-box m-auto vazir-font">
             <li>
-              <Link to={process.env.PUBLIC_URL + Pages.HomePage}>
+              <Link to={MakeUrl(Pages.HomePage)}>
                 <svg
                   width="24"
                   height="24"
@@ -64,7 +64,7 @@ const Layout: React.FC = ({ children }) => {
               </Link>
             </li>
             <li>
-              <Link to={process.env.PUBLIC_URL + Pages.About}>
+              <Link to={MakeUrl(Pages.About)}>
                 <svg
                   width="24"
                   height="24"

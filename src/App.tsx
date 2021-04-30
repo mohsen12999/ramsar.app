@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import { Pages } from "./shares/URLs";
+import { MakeUrl, Pages } from "./shares/URLs";
 
 import Home from "./pages/Home";
 // import Category from "./pages/Category";
@@ -13,16 +13,9 @@ import Notfound from "./pages/Notfound";
 
 const App = () => (
   <Switch>
-    <Route
-      exact
-      path={process.env.PUBLIC_URL + Pages.About}
-      component={About}
-    />
+    <Route exact path={MakeUrl(Pages.About)} component={About} />
 
-    <Route
-      path={process.env.PUBLIC_URL + Pages.HomePage + ":arg?"}
-      component={Home}
-    />
+    <Route path={MakeUrl(Pages.HomePage + ":arg?")} component={Home} />
 
     <Route component={Notfound} />
   </Switch>

@@ -1,18 +1,19 @@
 import React from "react";
 import { IFacility } from "../shares/Interfaces";
 import { APP_LOGO } from "../shares/Constants";
+import { MakeUrl } from "../shares/URLs";
 
 interface IFacilityThumbProps {
   facility: IFacility;
 }
 
 const FacilityThumb: React.FC<IFacilityThumbProps> = ({ facility }) => (
-  <div key={facility.id} className="card shadow p-6 lg:card-side bordered">
+  <div className="card shadow p-6 lg:card-side bordered">
     <figure>
       <img
         width="100"
         alt={facility.name}
-        src={process.env.PUBLIC_URL + (facility.img ? facility.img : APP_LOGO)}
+        src={facility.img ? MakeUrl(facility.img) : MakeUrl(APP_LOGO)}
       />
     </figure>
     <div className="card-body justify-evenly">
