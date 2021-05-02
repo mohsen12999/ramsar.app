@@ -16,3 +16,4 @@ package-lock.json
 public/js
 public/css
 .env.server
+composer.lock
