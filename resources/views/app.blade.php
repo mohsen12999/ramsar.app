@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="نرم‌افزار راهنمای رامسر" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,7 +33,22 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
 
     <title>رامسر اپ</title>
+    <meta name="description" content="نرم‌افزار راهنمای امکانات و نیازمندی‌های رامسر" />
 
+    <meta property="og:title" content="رامسر اپ">
+    <meta property="og:description" content="نرم‌افزار راهنمای امکانات و نیازمندی‌های رامسر">
+    <meta property="og:image" content="https://ramsar.app/favicon-32x32.png">
+    <meta property="og:url" content="https://ramsar.app">
+
+    <meta name="twitter:card" value="نرم‌افزار راهنمای امکانات و نیازمندی‌های رامسر">
+
+    <meta property="og:site_name" content="رامسر اپ">
+    <meta name="twitter:image:alt" content="نرم افزار رامسر اپ">
+    <meta name="twitter:creator" content="@mohsen_1299">
+
+    <meta itemprop="name" content="رامسر اپ">
+    <meta itemprop="description" content="نرم‌افزار راهنمای امکانات و نیازمندی‌های رامسر">
+    <meta itemprop="image" content="https://ramsar.app/apple-icon-180x180.png">
 </head>
 
 <body dir="rtl">
