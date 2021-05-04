@@ -7,13 +7,24 @@ interface IFacilityThumbProps {
 }
 
 const FacilityThumb: React.FC<IFacilityThumbProps> = ({ facility }) => (
-    <div className="card shadow p-6 lg:card-side bordered">
+    <div className="card shadow p-6 lg:card-side bordered m-2">
         <figure>
-            <img
-                width="100"
-                alt={facility.name}
-                src={facility.img ? facility.img : APP_LOGO}
-            />
+            <picture>
+                {facility.img && (
+                    <source
+                        type="image/webp"
+                        srcSet={facility.img.replace("png", "webp")}
+                    />
+                )}
+                <source
+                    type="image/png"
+                    srcSet={facility.img ? facility.img : APP_LOGO}
+                />
+                <img
+                    alt={facility.name}
+                    src={facility.img ? facility.img : APP_LOGO}
+                />
+            </picture>
         </figure>
         <div className="card-body justify-evenly">
             <h2 className="card-title vazir-font">{facility.name}</h2>

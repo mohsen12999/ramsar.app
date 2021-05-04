@@ -95,7 +95,14 @@ const Home: React.FC<IHomeProps> = ({ categories, facilities, LoadData }) => {
                 <Link className="max-w-xs m-auto" to={Pages.HomePage}>
                     <div className="max-w-xs m-auto">
                         <figure>
-                            <img src={APP_LOGO} alt="رامسر اپ" />
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcSet={APP_LOGO.replace("png", "webp")}
+                                />
+                                <source type="image/png" srcSet={APP_LOGO} />
+                                <img src={APP_LOGO} alt="رامسر اپ" />
+                            </picture>
                         </figure>
                         <div className="card-body">
                             <h2 className="card-title text-center vazir-font">
